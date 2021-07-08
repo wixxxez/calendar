@@ -1,0 +1,18 @@
+{
+  "@metadata": {
+    "authors": [
+      "Alice",
+      "David",
+      "Santhosh"
+    ],
+    "last-updated": "2012-09-21",
+    "locale": "en",
+    "message-documentation": "qqq",
+    "AnotherMetadata": "AnotherMedatadataValue"
+  },
+
+    "appname-title": "Przykładowa aplikacja",
+    "add_slot": "Dodaj slot"
+
+}
+

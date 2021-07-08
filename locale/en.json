@@ -1,0 +1,34 @@
+{
+  "@metadata": {
+    "authors": [
+      "Alice",
+      "David",
+      "Santhosh"
+    ],
+    "last-updated": "2012-09-21",
+    "locale": "en",
+    "message-documentation": "qqq",
+    "AnotherMetadata": "AnotherMedatadataValue"
+  },
+
+    "appname-title": "Example Application",
+    "name": "Name",
+    "add_slot": "Add slot",
+    "choose_box": "Choose Box",
+    "date": "Date",
+    "temperature": "Temperature",
+    "humidity": "Humidity %",
+    "buffer_time": "Buffer time",
+    "no_buffer": "No buffer",
+    "start_time": "Start time",
+    "finish_time": "Finish time",
+    "time": "Time",
+    "altitude": "Altitude",
+    "oxygen": "O2",
+    "areYouSure": "Are you sure?",
+    "close": "Close",
+    "delete": "Delete"
+
+
+}
+

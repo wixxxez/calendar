@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+#top,
+#calendar.fc-theme-standard {
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+#calendar.fc-theme-bootstrap {
+    font-size: 14px;
+}
+
+#top {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    padding: 0 10px;
+    line-height: 40px;
+    font-size: 12px;
+    color: #000;
+}
+
+#top .selector {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#top select {
+    font: inherit; /* mock what Boostrap does, don't compete  */
+}
+
+.left { float: left }
+.right { float: right }
+.clear { clear: both }
+
+#calendar {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 10px;
+}
+/*start*/
+.fc th {
+    background-color: #222222;
+}
+.buffer{
+    background-color: #2f465e;
+    border: 1px solid #676565;
+}
+.slot {
+    background-color: #72c163;
+    border: 1px solid #72c163;
+}
+.fc-v-event .fc-event-title-container {
+    flex-grow: 0;
+}
+.fc-event-title, .fc-event-time {
+    text-align: center;
+}
+.language-selector {
+    float: right;
+    margin-right: 5%;
+
+}
+#oxygen1:after,.oxygen-input:before{
+    content: "Test";
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: green;
+}
+.oxyger-percent {
+    position: absolute;
+    top: 0px;
+    left: 115px;
+    font-size: 22px;
+}
