@@ -1690,9 +1690,8 @@ var FullCalendar = (function (exports) {
         initialView: '',
         aspectRatio: 1.35,
         headerToolbar: {
-            start: 'title',
-            center: '',
-            end: 'today prev,next',
+           
+            
         },
         weekends: true,
         weekNumbers: false,
@@ -4077,7 +4076,7 @@ var FullCalendar = (function (exports) {
             list: 'list',
         },
         weekText: 'W',
-        allDayText: 'all-day',
+        
         moreLinkText: 'more',
         noEventsText: 'No events to display',
     };
@@ -6997,7 +6996,7 @@ var FullCalendar = (function (exports) {
         return { year: 'numeric', month: 'long', day: 'numeric' };
     }
 
-    // in future refactor, do the redux-style function(state=initial) for initial-state
+    // in future refactor, do the redux-style functi on(state=initial) for initial-state
     // also, whatever is happening in constructor, have it happen in action queue too
     var CalendarDataManager = /** @class */ (function () {
         function CalendarDataManager(props) {
@@ -12612,18 +12611,7 @@ var FullCalendar = (function (exports) {
                 });
             }
             if (allDayContent) {
-                sections.push({
-                    type: 'body',
-                    key: 'all-day',
-                    chunk: { content: allDayContent },
-                });
-                sections.push({
-                    type: 'body',
-                    key: 'all-day-divider',
-                    outerContent: ( // TODO: rename to cellContent so don't need to define <tr>?
-                    createElement("tr", { className: "fc-scrollgrid-section" },
-                        createElement("td", { className: 'fc-timegrid-divider ' + context.theme.getClass('tableCellShaded') }))),
-                });
+                
             }
             sections.push({
                 type: 'body',
@@ -13925,7 +13913,7 @@ var FullCalendar = (function (exports) {
         table: 'table-bordered',
         tableCellShaded: 'table-active',
         buttonGroup: 'btn-group',
-        button: 'btn btn-primary',
+        button: 'btn btn-primary hypoint-btn',
         buttonActive: 'active',
         popover: 'popover',
         popoverHeader: 'popover-header',

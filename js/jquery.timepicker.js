@@ -45,13 +45,13 @@
             if (widget.container.length === 0) {
                 widget.container = $('<div></div>').addClass('ui-timepicker-container')
                                     .addClass('ui-timepicker-hidden ui-helper-hidden')
-                                    .appendTo('body')
+                                    .appendTo('.modal-body')
                                     .hide();
                 widget.ui = $( '<div></div>' ).addClass('ui-timepicker')
                                     .addClass('ui-widget ui-widget-content ui-menu')
                                     .addClass('ui-corner-all')
                                     .appendTo(widget.container);
-                widget.viewport = $('<ul></ul>').addClass( 'ui-timepicker-viewport' )
+                widget.viewport = $('<ul></ul>').addClass( 'ui-timepicker-viewport hypoint-color' )
                                     .appendTo( widget.ui );
 
                 if ($.fn.jquery >= '1.4.2') {
@@ -120,7 +120,7 @@
                 while(time < end) {
                     if (widget._isValidTime(i, time)) {
                         item = $('<li>').addClass('ui-menu-item').appendTo(ul);
-                        $('<a>').addClass('ui-corner-all').text($.fn.timepicker.formatTime(i.options.timeFormat, time)).appendTo(item);
+                        $('<a>').addClass('ui-corner-all color-w').text($.fn.timepicker.formatTime(i.options.timeFormat, time)).appendTo(item);
                         item.data('time-value', time);
                     }
                     time = new Date(time.getTime() + i.options.interval * 60 * 1000);
@@ -363,10 +363,12 @@
             },
 
             open: function(i) {
+                i.setTime(new Date().setHours(8))
                 var widget = this,
                     selectedTime = i.getTime(),
-                    arrange = i.options.dynamic && selectedTime;
-
+                    
+                    arrange = selectedTime;
+                    console.log(i.getTime());
                 // return if dropdown is disabled
                 if (!i.options.dropdown) { return i.element; }
 
@@ -440,7 +442,7 @@
                 }
 
                 var containerDecorationHeight = widget.container.outerHeight() - widget.container.height(),
-                    zindex = i.options.zindex ? i.options.zindex : i.element.offsetParent().css( 'z-index' ),
+                    zindex = 0;
                     elementOffset = i.element.offset();
 
                 // position the container right below the element, or as close to as possible.
@@ -538,8 +540,7 @@
 
             getTime: function(i) {
                 var widget = this,
-                    current = $.fn.timepicker.parseTime(i.element.val());
-
+                    current = new Date('1899-12-31 08:00')
                 // if current value is not valid, we return null.
                 // stored Date object is ignored, because the current value
                 // (valid or invalid) always takes priority

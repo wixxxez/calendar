@@ -99,8 +99,8 @@ function createCalendar(){
         themeSystem: themeSystem,
         // nowIndicator: true,
         headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
+            
+            center: 'prev,title,next',
         },
         editable: true,
         selectable: true,
@@ -326,15 +326,16 @@ function addConfigurationRow(data){
     row1.append(divLabel1);
     let label1 = document.createElement('label');
     label1.setAttribute("for", "time"+configurationCount);
-    label1.innerText =    $.i18n( 'time' );
-    label1.setAttribute("data-i18n","time")
+    label1.innerText =    $.i18n( 'Time' );
+    label1.setAttribute("data-i18n","time");
+    label1.classList.add("hypoint-color")
     divLabel1.append(label1);
     let divInput = document.createElement('div');
     divInput.classList.add("col-md-8");
     row1.append(divInput);
     let input1 = document.createElement('input');
     input1.type = 'text';
-    input1.classList.add("form-control","timeChooser");
+    input1.classList.add("form-control","hypoint-input","timeChooser");
     input1.id ="time"+configurationCount;
     input1.name ="time"+configurationCount;
     input1.readOnly = true;
@@ -353,15 +354,16 @@ function addConfigurationRow(data){
     row2.append(divLabel2);
     let label2 = document.createElement('label');
     label2.setAttribute("for", "altitude"+configurationCount);
-    label2.innerText =    $.i18n( 'altitude' );
+    label2.innerText =    $.i18n( 'Altitude' );
     label2.setAttribute("data-i18n","altitude")
+    label2.classList.add("hypoint-color")
     divLabel2.append(label2);
     let divInput2 = document.createElement('div');
     divInput2.classList.add("col-md-8");
     row2.append(divInput2);
     let input2 = document.createElement('input');
     input2.type = 'number';
-    input2.classList.add("form-control");
+    input2.classList.add("form-control","hypoint-input");
     input2.id ="altitude"+configurationCount;
     input2.name ="altitude"+configurationCount;
     input2.value =altitude;
@@ -380,7 +382,8 @@ function addConfigurationRow(data){
     row3.append(divLabel3);
     let label3 = document.createElement('label');
     label3.setAttribute("for", "oxygen"+configurationCount);
-    label3.innerText =    $.i18n( 'oxygen' );
+    label3.innerText =    $.i18n( 'Oxygen' );
+    label3.classList.add("hypoint-color")
     label3.setAttribute("data-i18n","oxygen")
     divLabel3.append(label3);
     let divInput3 = document.createElement('div');
@@ -388,7 +391,7 @@ function addConfigurationRow(data){
     row3.append(divInput3);
     let input3 = document.createElement('input');
     input3.type = 'number';
-    input3.classList.add("form-control", "oxygen-input");
+    input3.classList.add("form-control", "oxygen-input",'hypoint-input');
     input3.id ="oxygen"+configurationCount;
     input3.name ="oxygen"+configurationCount;
     input3.value = oxygen;

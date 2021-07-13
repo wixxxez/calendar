@@ -1694,17 +1694,18 @@ pre code {
 }
 
 .table-bordered {
-  border: 1px solid #444;
+  border: 1px solid black;
 }
 
 .table-bordered th,
 .table-bordered td {
-  border: 1px solid #444;
+  border: 3px solid black;
 }
 
 .table-bordered thead th,
 .table-bordered thead td {
   border-bottom-width: 2px;
+  background-color: black!important;
 }
 
 .table-borderless th,
@@ -6056,9 +6057,9 @@ a.close.disabled {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #303030;
+  background-color: rgb(28, 28, 28);
   background-clip: padding-box;
-  border: 1px solid #444;
+  border: 1px solid rgb(28, 28, 28);
   border-radius: 0.3rem;
   outline: 0;
 }

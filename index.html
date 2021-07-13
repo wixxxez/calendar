@@ -20,7 +20,8 @@
 
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 
-
+  <style>
+       </style>
 
   <script src='js/fullcalendar.js'></script>
   <script src='locale/pl.js'></script>
@@ -35,14 +36,22 @@
 <!--  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js'></script>-->
 
 </head>
-<body>
-<div class="language-selector">
+<body style="background-color: black;">
+<!--<div class="language-selector">
   <a href="#" class="lang-switch" data-locale="en">English</a> |
   <a href="#" class="lang-switch" data-locale="pl">Polski</a>
-</div>
+</div>-->
 <div class="row"></div>
 
-<div  id='calendar'></div>
+<div  id='calendar'>
+
+
+</div>
+<div class="container">
+ <div class="d-flex flex-row-reverse bd-highlight">
+  <button class="hyp-btn btn btn-primary"> COPY </button>
+ </div>
+</div>
 
 
 <!-- Modal -->
@@ -50,20 +59,20 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="timeSlotModalLabel" ><span data-i18n="add_slot">Add slot</span></h5>
+        <h5 class="modal-title" id="timeSlotModalLabel" ></h5>
         <button type="button" id="closeModal2" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form id="addTimeSlotForm" name="addTimeSlotForm" action="data/save.php" method="post">
           <div class="mb-4">
-            <label for="title" class="form-label" data-i18n="name">Name</label>
-            <input type="text" name="title" class="form-control" id="title">
+            <label for="title" class="form-label hypoint-color" >Name</label>
+            <input type="text" name="title" class="form-control hypoint-input" id="title">
           </div>
           <div class="mb-3 form-group">
             <div class="row">
               <div class="col-md-4">
-                <label for="choose_box" data-i18n="choose_box"></label>
-                <select id="choose_box" name="choose_box" class="form-select form-control form-select-lg mb-3" aria-label="form-select-lg example">
+                <label for="choose_box " class="hypoint-color" >Choose Box</label>
+                <select id="choose_box" name="choose_box" class="form-select form-control form-select-lg mb-3 hypoint-input" aria-label="form-select-lg example">
                   <option selected>Open this select menu</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
@@ -71,24 +80,24 @@
                 </select>
               </div>
               <div class="col-md-3">
-                <label for="date" data-i18n="date">date</label>
-                <input type="text" readonly name="date" id="date" class="form-control">
+                <label for="date" class="hypoint-color" data-i18n="Date">Date</label>
+                <input type="text" readonly name="date" id="date" class="form-control hypoint-input-border">
               </div>
             </div>
           </div>
           <div class="mb-3 form-group">
             <div class="row">
               <div class="col-md-4">
-                <label for="temperature" data-i18n="temperature"></label>
-                <input type="number" name="temperature" id="temperature" class="form-control"/>
+                <label for="temperature" class="hypoint-color" data-i18n="Temperature"></label>
+                <input type="number" name="temperature" id="temperature" class="form-control hypoint-input"/>
               </div>
             </div>
           </div>
           <div class="mb-3 form-group">
             <div class="row">
               <div class="col-md-4">
-                <label for="humidity" data-i18n="humidity"></label>
-                <input type="number" name="humidity" id="humidity" class="form-control"/>
+                <label for="humidity" class="hypoint-color" data-i18n="Humidity"></label>
+                <input type="number" name="humidity" id="humidity" class="form-control hypoint-input"/>
               </div>
             </div>
           </div>
@@ -96,16 +105,20 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="row form-group">
-                    <label for="buffer_time" data-i18n="buffer_time" class="col-sm-5 col-form-label"></label>
+                    <label for="buffer_time" data-i18n="Buffer Time" class="col-sm-5 col-form-label hypoint-color"></label>
                     <div class="col-sm-5">
-                      <input type="text" class="form-control" name="buffer_time" id="buffer_time" readonly >
+                      <input type="text" class="form-control hypoint-input-border" name="buffer_time" id="buffer_time" readonly >
                     </div>
                   </div>
               </div>
               <div class="col-md-3">
-                <div class="form-check mt-2">
-                  <input type="checkbox" name="no_buffer" class="form-check-input" id="no_buffer">
-                  <label class="form-check-label" for="no_buffer" data-i18n="no_buffer"></label>
+                <div class="form-check mt-2 hypoint-chkbox ">
+                  <label class="toggle">
+                    <input class="toggle__input" type="checkbox" name="no_buffer">
+                    <span class="toggle__label">
+                      <span class="toggle__text hypoint-color">No buffer</span>
+                    </span>
+                  </label>
                 </div>
 
               </div>
@@ -115,28 +128,28 @@
             <div class="col-md-4">
               <div class="row form-group">
                 <div class="col-md-4">
-                  <label for="start_time" data-i18n="start_time"></label>
+                  <label for="start_time" class="hypoint-color" data-i18n="Start Time"></label>
                 </div>
                 <div class="col-md-8">
-                  <input type="text" name="start_time" id="start_time" class="form-control" readonly/>
+                  <input type="text hypoint-input" name="start_time" id="start_time" class="form-control hypoint-input" readonly/>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="row form-group">
                 <div class="col-md-4">
-                  <label for="finish_time" data-i18n="finish_time"></label>
+                  <label for="finish_time" class="hypoint-color" data-i18n="Finish Time"></label>
                 </div>
                 <div class="col-md-8">
-                  <input type="text" name="finish_time" id="finish_time" class="form-control" readonly/>
+                  <input type="text" name="finish_time" id="finish_time" class="form-control hypoint-input" readonly/>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
-              <button type="button" id="addConfiguration" class="btn btn-success" aria-label="Left Align">
+              <button type="button" id="addConfiguration" class="btn btn-success hyp-btn" aria-label="Left Align">
                 <i class="fas fa-plus"></i>
               </button>
-              <button type="button" id="removeConfiguration" class="btn btn-danger ml-2" aria-label="Left Align">
+              <button type="button" id="removeConfiguration" class="btn btn-danger hyp-btn ml-2" aria-label="Left Align">
                 <i class="fas fa-minus"></i>
               </button>
             </div>
@@ -147,8 +160,8 @@
 
 
           <div class="float-right">
-            <button type="button" id="closeModal1" class="btn btn-secondary"   data-i18n="close" data-bs-dismiss="modal">Close</button>
-            <button type="submit" id="addTimeSlot" class="btn btn-primary">Save changes</button>
+            <button type="button" id="closeModal1" class="btn btn-secondary hyp-btn "   data-i18n="close" data-bs-dismiss="modal">Close</button>
+            <button type="submit" id="addTimeSlot" class="btn btn-primary hyp-btn ">Save </button>
           </div>
 
         </form>
@@ -165,7 +178,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel"  data-i18n="areYouSure"></h5>
+        <h5 class="modal-title" id="deleteModalLabel"  data-i18n="Are You Sure"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
       </div>
@@ -173,8 +186,8 @@
 <!--        ...-->
 <!--      </div>-->
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="close"></button>
-        <button type="button" class="btn btn-primary" id="delete-event" data-i18n="delete">Save changes</button>
+        <button type="button" class="btn btn-secondary hyp-btn" data-bs-dismiss="modal" data-i18n="Close"></button>
+        <button type="button" class="btn btn-primary hyp-btn" id="delete-event" data-i18n="Delete">Save changes</button>
       </div>
     </div>
   </div>
@@ -182,7 +195,12 @@
 
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>-->
 <script src="js/jquery.timepicker.js"></script>
-
+<script>
+  window.onload = function(){
+    $('.fc-timegrid-axis-frame').text('TIME');
+  }
+  
+</script>
 </body>
 </html>
 
