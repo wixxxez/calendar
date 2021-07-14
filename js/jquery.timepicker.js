@@ -444,13 +444,27 @@
                 var containerDecorationHeight = widget.container.outerHeight() - widget.container.height(),
                     zindex = 0;
                     elementOffset = i.element.offset();
-
+                var top;
+                var left;
+                if(elementOffset.left < 169.3249969482422){
+                    left = "134.325px"
+                    top = "402.1px"
+                }
+                if(elementOffset.left < 177.21250915527344){
+                    left = "142.213px"
+                    top = "479.5px" 
+                }
+                if(elementOffset.left < 500 ){
+                    left = "519.325px"
+                    top = "479.5px" 
+                }
                 // position the container right below the element, or as close to as possible.
                 widget.container.css( {
-                    top: elementOffset.top + i.element.outerHeight(),
-                    left: elementOffset.left
-                } );
 
+                    top: top,
+                    left: left
+                } );
+                console.log(elementOffset.left);
                 // then show the container so that the browser can consider the timepicker's
                 // height to calculate the page's total height and decide if adding scrollbars
                 // is necessary.
@@ -460,7 +474,7 @@
                 // If the browser added scrollbars, the container's original position is not aligned
                 // with the element's final position. This step fixes that problem.
                 widget.container.css( {
-                    left: i.element.offset().left,
+                    left: left,
                     height: widget.ui.outerHeight() + containerDecorationHeight,
                     width: i.element.outerWidth(),
                     zIndex: zindex,
